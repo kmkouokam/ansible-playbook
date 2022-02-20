@@ -1,0 +1,22 @@
+---
+ - hosts: all
+   ignore_errors: yes
+   become: yes
+   tasks:
+     - name: Create user
+       user:
+         name: Lydia
+         comment: Lydia Victory
+
+     - name: Create directory
+       file: 
+          path: /tmp/devops-ans
+          owner: Lydia
+          state: directory
+          mode: "0777"
+     - name: Create file
+       file:
+          path: /tmp/ansible-class
+          owner: Lydia
+          state: touch 
+          mode: "0600"
